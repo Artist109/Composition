@@ -2,6 +2,8 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("kotlin-parcelize")
+    id("androidx.navigation.safeargs")
+    kotlin("kapt") version "2.0.10"
 }
 
 android {
@@ -36,11 +38,16 @@ android {
     }
 
     buildFeatures {
-        viewBinding = true
+        //noinspection DataBindingWithoutKapt
+        dataBinding = true
     }
 }
 
 dependencies {
+    implementation("com.android.support:support-annotations:28.0.0")
+    val nav_version = "2.7.7"
+    implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
+    implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
 
     implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.appcompat:appcompat:1.7.0")

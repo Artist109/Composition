@@ -29,11 +29,10 @@ class GameViewModel(
 
     private lateinit var getGameSettings: GameSettings
 
-    private val _formattedTime = MutableLiveData<String>()
     private var timer: CountDownTimer? = null
+    private val _formattedTime = MutableLiveData<String>()
     val formattedTime: LiveData<String>
         get() = _formattedTime
-
 
     private var _question = MutableLiveData<Question>()
     val question: LiveData<Question>
